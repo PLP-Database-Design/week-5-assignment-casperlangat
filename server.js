@@ -35,7 +35,7 @@ app.set('views', __dirname + '/views');
 
 // Question 1 goes here
 // Retrieve all patients
-app.get('', (req, res) => {
+app.get('/patients', (req, res) => {
   const getPatients = "SELECT patient_id, first_name, last_name, date_of_birth FROM patients"
   db.query(getPatients, (err, data) => {
     //if have an error
@@ -50,7 +50,7 @@ app.get('', (req, res) => {
 
 // Question 2 goes here
 // Retrieve all providers
-app.get('', (req, res) => {
+app.get('/providers', (req, res) => {
   const getProviders = "SELECT first_name, last_name, provider_specialty FROM providers"
   db.query(getProviders, (err, data) => {
     if (err) {
@@ -66,7 +66,7 @@ app.get('', (req, res) => {
 
 // Question 3 goes here
 //Filter patients by First Name
-app.get('', (req, res) => {
+app.get('/patients/filter', (req, res) => {
   const getPatients = "SELECT first_name FROM patients"
   db.query(getPatients, (err, data) => {
     if (err) {
@@ -81,7 +81,7 @@ app.get('', (req, res) => {
 
 // Question 4 goes here
 // Retrieve all providers by their specialty
-app.get('', (req, res) => {
+app.get('/providers/specialty', (req, res) => {
   const getProviders = "SELECT provider_specialty FROM providers"
   db.query(getProviders, (err, data) => {
     if (err) {
